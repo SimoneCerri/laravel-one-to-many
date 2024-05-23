@@ -8,7 +8,8 @@
     - aggiungere ai model Type e Project i metodi per definire la relazione one to many [X]
     - visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente [X]
     - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto [X]
-    - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione []
+    - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione [X]
+
 ## Bonus 1 ##
 
 - Creare il seeder per il model Type. [X]

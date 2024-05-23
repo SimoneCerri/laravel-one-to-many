@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin; //add \Admin to path
 
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Controllers\Controller; //add Controller
 
 class TypeController extends Controller
 {
@@ -13,7 +14,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.types.index',['types'=> Type::orderByDesc('id')->paginate(5)]);
     }
 
     /**
@@ -21,7 +22,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -29,7 +30,7 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        return to_route('admin.types.index')->with('status', "Add successfully type -> NAME");
     }
 
     /**
@@ -37,7 +38,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -45,7 +46,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('types'));
     }
 
     /**
@@ -53,7 +54,7 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        return to_route('admin.types.index')->with('status', "Type -> NAME updated with success !");
     }
 
     /**
@@ -61,6 +62,6 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        return to_route('admin.types.index')->with('status', "Deleted -> NAME type with success..");
     }
 }
