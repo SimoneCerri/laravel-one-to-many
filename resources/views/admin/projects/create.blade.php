@@ -23,6 +23,15 @@
                     <div class="text-danger py-2">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3 py-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select" name="type_id" id="type_id">
+                    <option selected disabled>Select one</option>
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}" {{$type->id == old('category_id') ? 'selected' : '' }} >{{$type->name}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="url1" class="form-label">GitHub link</label>
                 <input type="text" class="form-control @error('url1') is-invalid @enderror" name="url1" id="url1"

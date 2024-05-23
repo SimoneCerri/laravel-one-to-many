@@ -7,7 +7,7 @@
     - creare la migration di modifica per la tabella projects per aggiungere la chiave esterna [X]
     - aggiungere ai model Type e Project i metodi per definire la relazione one to many [X]
     - visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente [X]
-    - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto []
+    - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto [X]
     - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione []
 ## Bonus 1 ##
 

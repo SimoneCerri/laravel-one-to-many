@@ -43,14 +43,11 @@
                 @enderror
             </div>
             <div class="d-flex py-3">
-                <img src="{{ $project->img }}" alt="">
                 <div class="mb-3 px-3">
                     <div class="row align-items-center">
                         <div class="col">
                             @if (Str::startsWith($project->img, 'https://'))
                                 <img width="250" src="{{ $project->img }}" alt="">
-                                @ifelse
-                                <img width="250" src="" alt="">
                             @else
                                 <img width="250" src="{{ asset('storage/' . $project->img) }}" alt="">
                             @endif
@@ -66,6 +63,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="mb-3 py-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select" name="type_id" id="type_id">
+                    <option selected disabled>Select one</option>
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}" {{$type->id == old('category_id',$project->type_id) ? 'selected' : '' }} >{{$type->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3 py-3">
                 <label for="content" class="form-label fw-bold">Content</label>
