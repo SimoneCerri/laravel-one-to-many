@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']); //ADD slugs instead of ID in URL with ->parameters(['names'=>'name:slug'])
 
-        Route::resource('types', TypeController::class)->parameters(['types' => 'types:slug']);
+        Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);
     });
 
 Route::middleware('auth')->group(function () {

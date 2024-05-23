@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    @dd($type)
     <header>
         <div class="container-fluid bg-dark py-3 text-danger">
             <div class="container d-flex align-items-center justify-content-between">
@@ -14,23 +13,23 @@
         </div>
     </header>
 
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-2"><span class="fw-bold">Type ID:</span></div>
-                <div class="col-3"><span class="fw-bold">Name:</span></div>
-                <div class="col-3"><span class="fw-bold">Slug:</span></div>
-            </div>
-        </div>
+    <section class="py-5 text-center">
         <div class="container">
             <div class="row">
-                <div class="col-2">
+                <div class="col-4"><span class="fw-bold">Type ID:</span></div>
+                <div class="col-4"><span class="fw-bold">Name:</span></div>
+                <div class="col-4"><span class="fw-bold">Slug:</span></div>
+            </div>
+        </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-4">
                     <span scope="row">{{ $type->id }}</span>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <span scope="row">{{ $type->name }}</span>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <span scope="row">{{ $type->slug }}</span>
                 </div>
             </div>
@@ -38,12 +37,12 @@
         <div class="container py-5 d-flex align-items-center justify-content-between">
             <div class="d-flex">
                 <div class="">
-                    {{-- <a class="btn btn-dark" href="{{ route('admin.types.edit', $type) }}">
+                    <a class="btn btn-dark" href="{{ route('admin.types.edit', $type) }}">
                         <i class="fas fa-pencil fa-lg fa-fw"></i>
                         <span class="px-2 fw-bold">
                             EDIT
                         </span>
-                    </a> --}}
+                    </a>
                 </div>
                 <div class="px-3">
                     <!-- Button trigger modal -->
@@ -70,13 +69,13 @@
                                     <div class="container-fluid">❌care❌care❌</div>
                                 </div>
                                 <div class="modal-footer">
-                                    {{-- <form action="{{ route('admin.types.destroy', $type) }}" method="post">
+                                    <form action="{{ route('admin.types.destroy', $type) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
                                             Delete this type
                                         </button>
-                                    </form> --}}
+                                    </form>
                                 </div>
                             </div>
                         </div>
