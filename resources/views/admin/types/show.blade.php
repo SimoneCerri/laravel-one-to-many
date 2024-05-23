@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
+    @dd($type)
     <header>
         <div class="container-fluid bg-dark py-3 text-danger">
             <div class="container d-flex align-items-center justify-content-between">
                 <h1>
                     <strong>
-                        {{ $type->name }}
+                        {{$type->name}}
                     </strong>
                 </h1>
             </div>
@@ -37,12 +38,12 @@
         <div class="container py-5 d-flex align-items-center justify-content-between">
             <div class="d-flex">
                 <div class="">
-                    <a class="btn btn-dark" href="{{ route('admin.types.edit', $type) }}">
+                    {{-- <a class="btn btn-dark" href="{{ route('admin.types.edit', $type) }}">
                         <i class="fas fa-pencil fa-lg fa-fw"></i>
                         <span class="px-2 fw-bold">
                             EDIT
                         </span>
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="px-3">
                     <!-- Button trigger modal -->
@@ -69,13 +70,13 @@
                                     <div class="container-fluid">❌care❌care❌</div>
                                 </div>
                                 <div class="modal-footer">
-                                    <form action="{{ route('admin.types.destroy', $project) }}" method="post">
+                                    {{-- <form action="{{ route('admin.types.destroy', $type) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
                                             Delete this type
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </div>

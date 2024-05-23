@@ -2,5 +2,5 @@
 
 @section('content')
 
-    @dd($type)
+    Welcome to edit page
 @endsection
