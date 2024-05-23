@@ -46,7 +46,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view('admin.types.edit', compact('type'));
+        $types = Type::all();
+        return view('admin.types.edit', compact('type','types'));
     }
 
     /**
@@ -54,7 +55,11 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        return to_route('admin.types.index')->with('status', "Type -> NAME updated with success !");
+        $validatedRequest = $request->validated();
+        dd($validatedRequest);
+        $type->update($validatedRequest);
+        $name = $type['name'];
+        return to_route('admin.types.index')->with('status', "Type -> $name updated with success !");
     }
 
     /**
@@ -62,6 +67,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        return to_route('admin.types.index')->with('status', "Deleted -> NAME type with success..");
+        $name = $type['title'];
+        return to_route('admin.types.index')->with('status', "Deleted -> $name type with success..");
     }
 }

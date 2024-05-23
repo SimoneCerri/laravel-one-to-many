@@ -69,7 +69,7 @@
                 <select class="form-select" name="type_id" id="type_id">
                     <option selected disabled>Select one</option>
                     @foreach ($types as $type)
-                        <option value="{{$type->id}}" {{$type->id == old('category_id',$project->type_id) ? 'selected' : '' }} >{{$type->name}}</option>
+                        <option value="{{$type->id}}" {{$type->id == old('type_id',$project->type_id) ? 'selected' : '' }} >{{$type->name}}</option>
                     @endforeach
                 </select>
             </div>
