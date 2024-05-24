@@ -15,15 +15,16 @@
         <form action="{{ route('admin.types.update', $type) }}" method="post">
             @csrf
             @method('PUT')
-            <div class="mb-3 py-3">
-                <label for="type_id" class="form-label">Type</label>
-                <select class="form-select" name="type_id" id="type_id">
+            {{-- <div class="mb-3 py-3">
+                <label for="name" class="form-label">Type</label>
+                <select class="form-select" name="name" id="name">
                     <option selected disabled>Select one</option>
                     @foreach ($types as $type)
-                        <option value="{{$type->id}}" {{$type->id == old('type_id') ? 'selected' : '' }} >{{$type->name}}</option>
+                        <option value="{{ $type->name }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>
+                            {{ $type->name }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-dark text-success">
                     Save changes
