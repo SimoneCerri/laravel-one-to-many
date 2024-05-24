@@ -56,15 +56,16 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        $oldName = $type['name'];
+        //dd($request['oldName']);
+        $oldName = $request['oldName'];
         //dd($request);
         //dd($request->validated());
         $validatedRequest = $request->validated();
-        $name = $type['name'];
         $slug = Str::slug($request->name, '-');
         $validatedRequest['slug'] = $slug;
         //dd($validatedRequest);
         $type->update($validatedRequest);
+        $name = $type['name'];
         return to_route('admin.types.index')->with('status', "Type -> '$oldName' updated in '$name' with success !");
     }
 
