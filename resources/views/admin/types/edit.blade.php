@@ -15,16 +15,18 @@
         <form action="{{ route('admin.types.update', $type) }}" method="post">
             @csrf
             @method('PUT')
-            {{-- <div class="mb-3 py-3">
-                <label for="name" class="form-label">Type</label>
-                <select class="form-select" name="name" id="name">
-                    <option selected disabled>Select one</option>
-                    @foreach ($types as $type)
-                        <option value="{{ $type->name }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>
-                            {{ $type->name }}</option>
-                    @endforeach
+            <div class="mb-3 py-3">
+                <label for="oldName" class="form-label">Old type</label>
+                <select class="form-select" name="oldName" id="oldName">
+                    <option selected>{{ $type->name }}</option>
                 </select>
-            </div> --}}
+            </div>
+            <div class="mb-3 py-3">
+                <label for="name" class="form-label">New type</label>
+                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelpId"
+                    placeholder="Laravel" />
+                <small id="nameHelpId" class="form-text text-muted">Change type..</small>
+            </div>
             <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-dark text-success">
                     Save changes

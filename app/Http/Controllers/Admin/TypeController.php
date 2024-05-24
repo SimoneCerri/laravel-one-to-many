@@ -6,6 +6,7 @@ use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Controllers\Controller; //add Controller
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -55,14 +56,16 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
+        $oldName = $type['name'];
         //dd($request);
         //dd($request->validated());
         $validatedRequest = $request->validated();
-        //slug
+        $name = $type['name'];
+        $slug = Str::slug($request->name, '-');
+        $validatedRequest['slug'] = $slug;
         //dd($validatedRequest);
         $type->update($validatedRequest);
-        $name = $type['name'];
-        return to_route('admin.types.index')->with('status', "Type -> $name updated with success !");
+        return to_route('admin.types.index')->with('status', "Type -> '$oldName' updated in '$name' with success !");
     }
 
     /**
