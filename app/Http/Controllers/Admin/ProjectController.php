@@ -48,7 +48,7 @@ class ProjectController extends Controller
         }
         Project::create($validatedRequest);
         //redirect
-        return to_route('admin.projects.index')->with('status',"Add successfully project $title");
+        return to_route('admin.projects.index')->with('status',"Add successfully project '$title' !");
     }
 
     /**
@@ -87,7 +87,7 @@ class ProjectController extends Controller
         }
         $project->update($validatedRequest);
         $title = $project['title'];
-        return to_route('admin.projects.index')->with('status',"Project $title updated with success !");
+        return to_route('admin.projects.index')->with('status',"Project '$title' updated with success !");
     }
 
     /**
@@ -101,6 +101,6 @@ class ProjectController extends Controller
             Storage::delete($project->img); //delete old img inside storage
         }
         $project->delete();
-        return to_route('admin.projects.index')->with('status',"Deleted $title project with success..");
+        return to_route('admin.projects.index')->with('status',"Deleted '$title' project with success..");
     }
 }

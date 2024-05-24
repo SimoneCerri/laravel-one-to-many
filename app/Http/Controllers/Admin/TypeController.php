@@ -31,7 +31,13 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        return to_route('admin.types.index')->with('status', "Add successfully type -> NAME");
+        $validatedRequest = $request->validated();
+        //dd($validatedRequest);
+        $slug = Str::slug($request->name,'-');
+        $validatedRequest['slug'] = $slug;
+        $name = $validatedRequest['name'];
+        Type::create($validatedRequest);
+        return to_route('admin.types.index')->with('status', "Add successfully type -> '$name' !");
     }
 
     /**
@@ -74,7 +80,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        $name = $type['title'];
-        return to_route('admin.types.index')->with('status', "Deleted -> $name type with success..");
+        $name = $type['name'];
+        $type->delete();
+        return to_route('admin.types.index')->with('status', "Deleted -> '$name' type with success..");
     }
 }
